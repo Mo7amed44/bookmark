@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- fonts google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Amatic+SC:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Amatic+SC:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+<!-- font awsome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- bootstrab -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+<!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <div class="container pt-4">
+        <h1 class="text-center my-5">Bookmarker</h1>
+
+        <hr class="text-black my-4">
+
+        <h2 class="text-center"><i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+        </h2>
+
+        <div class="mb-5  d-flex flex-column flex-wrap">
+            <label for="siteName" class="form-label"><i class="fa-solid fa-book-bookmark"></i> Site Name</label>
+            <input oninput="validationInput(this);" type="text" class="form-control" id="siteName"
+                aria-describedby="emailHelp" placeholder="Bookmark name">
+
+        </div>
+        <div class="my-3">
+            <label for="siteUrl" class="form-label"><i class="fa-solid fa-link"></i> Site
+                URL</label>
+            <input oninput="validationInput(this);" type="text" class="form-control" id="siteUrl"
+                placeholder="Website URL">
+        </div>
+
+        <button type="submit"
+            class="btn btn-danger text-center m-auto d-flex justify-content-center fs-6 py-1 px-5 my-4"
+            onclick="siteBookmark();">Submit</button>
+        <hr class="text-black my-3">
+    </div>
+
+<!-- table -->
+    <div class="container">
+        <table class=" table text-center mt-2">
+            <thead class="bg-white">
+                <tr>
+                    <th class="mx-auto">index</th>
+                    <th class="mx-3">Website Name</th>
+                    <th class="mx-3">Visit</th>
+                    <th class="mx-3">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="displayWebsite"></tbody>
+
+
+        </table>
+    </div>
+
+<!-- alert -->
+    <div id="lightBoxContainer" class="d-none">
+        <div id="lightBox" class="position-relative ">
+            <div class="icon p-3">
+                <i class="fa-solid fa-circle text-danger"></i>
+                <i class="fa-solid fa-circle text-primary"></i>
+                <i class="fa-solid fa-circle text-warning"></i>
+            </div>
+            <p class="p-2 text-danger">Site Name or Url is not valid, Please follow the rules below :</p>
+
+            <p class="pt-3 px-2 fs-5"><i class="fa-solid fa-circle-arrow-right px-2 text-danger"></i>Site name must be the first
+                letter a capital letter and contain at least 3 characters .</p>
+            <p class="fs-5 px-2 "><i class="fa-solid fa-circle-arrow-right px-2 text-danger"></i>Site URL must be a valid one and it should start http:// or https:// .
+            </p>
+            <p class="fs-5 px-2 "><i class="fa-solid fa-circle-arrow-right px-2 text-danger"></i> Must be filled out input .
+            </p>
+            <a class="text-black" id="closeBtn" href="#"><i
+                    class="fa-solid fa-xmark position-absolute top-0 end-0 p-3 fs-3"></i></a>
+        </div>
+    </div>
+
+
+<!-- js -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>
